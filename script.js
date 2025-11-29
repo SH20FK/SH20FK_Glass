@@ -27,12 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
             moveSpotlight(window.innerWidth / 2, window.innerHeight / 2);
         };
 
-        // place spotlight behind the title on load to avoid offset flash
         placeAtHero();
 
         window.addEventListener('mousemove', (e) => moveSpotlight(e.clientX, e.clientY));
         window.addEventListener('resize', () => {
-            // keep centering accurate after resize
             placeAtHero();
         });
     }
