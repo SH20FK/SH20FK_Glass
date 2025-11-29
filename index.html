@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SH2OFK BIO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="cursor-spotlight"></div>
+<div id="particles-container"></div>
+<div class="glass-orbs"></div>
+
+<section class="hero">
+    <h1 class="glitch-title" data-text="SH2OFK">SH2OFK</h1>
+    <div class="scroll-arrow" id="scroll-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M19 12l-7 7-7-7"/>
+        </svg>
+    </div>
+</section>
+
+<div class="container">
+    <main id="main-content">
+        <div class="left-panel">
+            <div class="music-player card">
+                <h2 class="panel-title">Музыкальный плеер</h2>
+                <div class="player-body">
+                    <div class="album-art">
+                        <img src="images/cover1.jpg" alt="Обложка трека" id="album-art-img">
+                    </div>
+                    <div class="track-info">
+                        <div id="song-title-display" class="song-title">Загрузка...</div>
+                        <div id="song-artist-display" class="song-artist"></div>
+                        <div class="controls">
+                            <div class="progress-container">
+                                <div class="progress-bar"></div>
+                            </div>
+                            <div class="time-display">
+                                <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+                            </div>
+                            <div class="buttons">
+                                <button id="prev-btn" class="control-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"/></svg>
+                                </button>
+                                <button id="play-pause-btn" class="control-btn play">
+                                    <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                    <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                                    </svg>
+                                </button>
+                                <button id="next-btn" class="control-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 17l5-5-5-5M6 17l5-5-5-5"/></svg>
+                                </button>
+                                <div class="volume-control">
+                                    <button id="volume-btn" class="control-btn">
+                                        <svg class="volume-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                                        <svg class="volume-off" style="display: none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+                                    </button>
+                                    <div class="volume-slider-container">
+                                        <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.01" value="1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lastfm-card card" id="lastfm-now-playing">
+                <div class="lastfm-header">
+                    <div class="lastfm-title-wrapper">
+                        <svg class="lastfm-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24C5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12-5.373 12-12 12zM9.36 18.336l5.28-5.28V7.2H9.36v11.136z"/></svg>
+                        <h3 class="lastfm-title">Слушаю на Last.fm</h3>
+                    </div>
+                    <button id="lastfm-refresh-btn" class="control-btn small">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 30 30">
+			<path d="M 15 3 C 12.031398 3 9.3028202 4.0834384 7.2070312 5.875 A 1.0001 1.0001 0 1 0 8.5058594 7.3945312 C 10.25407 				5.9000929 12.516602 5 15 5 C 20.19656 5 24.450989 8.9379267 24.951172 14 L 22 14 L 26 20 L 30 14 L 26.949219 14 C 26.437925 			7.8516588 21.277839 3 15 3 z M 4 10 L 0 16 L 3.0507812 16 C 3.562075 22.148341 8.7221607 27 15 27 C 17.968602 27 20.69718 			25.916562 22.792969 24.125 A 1.0001 1.0001 0 1 0 21.494141 22.605469 C 19.74593 24.099907 17.483398 25 15 25 C 9.80344 25 			5.5490109 21.062074 5.0488281 16 L 8 16 L 4 10 z"></path>
+		</svg>
+                    </button>
+                </div>
+                <div class="lastfm-track-info">
+                    <p id="lastfm-status">Загрузка данных...</p>
+                    <p id="lastfm-track"></p>
+                </div>
+            </div>
+
+            <div class="links-container">
+                <a href="https://t.me/Door0S" class="link-card card" target="_blank"><div class="link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15,12.2l-3.3,3.2c-.3.3-.7.3-1,0-.3-.3-.3-.7,0-1l2.8-2.7-4.3,2.5c-3.1,1.8-4.1,1.3-4.4-.9C4,12.3,5.1,12,6.1,11.6l12.4-4.2c.9-.3,1.7.1,1.4,1.4l-2.4,10.1c-.2.8-1,1.1-1.6.6l-3.6-3.4-2,2c-.3.3-.7.3-1,0s-.3-.7,0-1l1.7-1.7,3.9-3.7Z"/></svg></div><div class="link-text"><div class="link-title">Telegram</div><div class="link-subtitle">Личный аккаунт</div></div></a>
+                <a href="https://t.me/SH20FK_SP" class="link-card card" target="_blank"><div class="link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15,12.2l-3.3,3.2c-.3.3-.7.3-1,0-.3-.3-.3-.7,0-1l2.8-2.7-4.3,2.5c-3.1,1.8-4.1,1.3-4.4-.9C4,12.3,5.1,12,6.1,11.6l12.4-4.2c.9-.3,1.7.1,1.4,1.4l-2.4,10.1c-.2.8-1,1.1-1.6.6l-3.6-3.4-2,2c-.3.3-.7.3-1,0s-.3-.7,0-1l1.7-1.7,3.9-3.7Z"/></svg></div><div class="link-text"><div class="link-title">Telegram channel</div><div class="link-subtitle">Мой телеграмм канал</div></div></a>
+                <a href="https://www.last.fm/user/SH20FK" class="link-card card" target="_blank"><div class="link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24C5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12-5.373 12-12 12zM9.36 18.336l5.28-5.28V7.2H9.36v11.136z"/></svg></div><div class="link-text"><div class="link-title">Last.fm</div><div class="link-subtitle">Аккаунт на Ласт.ФМ</div></div></a>
+                <a href="https://steamcommunity.com/id/SH20FK/" class="link-card card" target="_blank"><div class="link-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16"><path d="M.329 10.333A8.01 8.01 0 0 0 7.99 16C12.414 16 16 12.418 16 8s-3.586-8-8.009-8A8.006 8.006 0 0 0 0 7.468l.003.006 4.304 1.769A2.198 2.198 0 0 1 5.62 8.88l1.96-2.844-.001-.04a3.046 3.046 0 0 1 3.042-3.043 3.046 3.046 0 0 1 3.042 3.043 3.047 3.047 0 0 1-3.111 3.044l-2.804 2a2.223 2.223 0 0 1-3.075 2.11 2.217 2.217 0 0 1-1.312-1.568L.33 10.333Z"/><path d="M4.868 12.683a1.715 1.715 0 0 0 1.318-3.165 1.705 1.705 0 0 0-1.263-.02l1.023.424a1.261 1.261 0 1 1-.97 2.33l-.99-.41a1.7 1.7 0 0 0 .882.84Zm3.726-6.687a2.03 2.03 0 0 0 2.027 2.029 2.03 2.03 0 0 0 2.027-2.029 2.03 2.03 0 0 0-2.027-2.027 2.03 2.03 0 0 0-2.027 2.027Zm2.03-1.527a1.524 1.524 0 1 1-.002 3.048 1.524 1.524 0 0 1 .002-3.048Z"/></svg></div><div class="link-text"><div class="link-title">Steam</div><div class="link-subtitle">Стим профиль</div></div></a>
+            </div>
+        </div>
+
+        <div class="middle-panel">
+            <div class="about-me card">
+                <h2 class="panel-title">Обо мне</h2>
+                <h3>Кто я</h3>
+                <p>Меня зовут #########, я — разработчик программного обеспечения из Челябинска. Моя страсть — создание логичных и надежных программных продуктов.</p>
+                <h3>Мой подход к работе</h3>
+                <p>Я верю, что лучший код — это тот, который не только эффективно работает, но и понятен другим разработчикам. В каждом проекте я стремлюсь к созданию стабильных, масштабируемых и легко поддерживаемых решений.</p>
+                <h3>Ключевые навыки и компетенции</h3>
+                <ul>
+                    <li><strong>Основной фокус:</strong> Активно развиваюсь в программировании на Python, изучаю его фреймворки и библиотеки.</li>
+                    <li><strong>Гибкие навыки (Soft Skills):</strong> Дружелюбен и коммуникабелен, легко адаптируюсь к новым условиям и коллективу. Умею слушать и находить компромиссы.</li>
+                </ul>
+                <h3>Цели и стремления</h3>
+                <p><em>На данном этапе моей главной целью является получение практического опыта. Я ищу возможность присоединиться к команде, где смогу применять свои знания, учиться у опытных коллег и работать над реальными задачами.</em></p>
+                <h3>Вне работы</h3>
+                <p>В свободное время я люблю погружаться в миры видеоигр, что отлично тренирует стратегическое мышление и навыки решения проблем. Также ценю время, проведенное с друзьями и близкими.</p>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="gallery-slider card">
+                <div class="slider-header">
+                    <h3 class="panel-title">PHOTO REEL</h3>
+                    <div class="slider-dots" id="slider-dots"></div>
+                </div>
+                <div class="slider-window">
+                    <div class="slider-track" id="slider-track"></div>
+                    <button class="slider-nav prev" id="slider-prev" aria-label="Previous shot">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="slider-nav next" id="slider-next" aria-label="Next shot">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="interactive-card card">
+                <div class="card-header" id="interactive-card-header">
+                    <h3 class="panel-title" id="interactive-card-title">Мои проекты</h3>
+                    <span class="card-toggle-arrow" id="interactive-card-arrow">→</span>
+                </div>
+                
+                <div class="flipper-container" id="flipper-container">
+                    <div class="card-face card-front">
+                        <div class="projects-list">
+                            <a href="https://nioscraft.ru" target="_blank" class="project-item" style="background-image: url('images/project_nioscraft.jpg');">
+                                <div class="project-item-overlay">
+                                    <div class="project-top-content">
+                                        <div class="project-info">
+                                            <div class="project-title">Сайт NiosCraft</div>
+                                            <div class="project-subtitle">Дизайн и разработка сайта</div>
+                                        </div>
+                                        <div class="project-tags">
+                                            <span class="tag">HTML</span>
+                                            <span class="tag">CSS</span>
+                                            <span class="tag">JavaScript</span>
+                                        </div>
+                                    </div>
+                                    <div class="project-link">Перейти →</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-face card-back">
+                        <div class="setup-list">
+                            <div class="setup-item">
+                                <div class="setup-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="1" /><path d="M9 9h6v6H9z" /><path d="M3 10h2M3 14h2M19 10h2M19 14h2M10 3v2M14 3v2M10 19v2M14 19v2" /></svg></div>
+                                <div class="setup-text"><div class="setup-title">Ryzen 5 5600</div><div class="setup-subtitle">Процессор</div></div>
+                            </div>
+                            <div class="setup-item">
+                                <div class="setup-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke="currentColor"><rect x="3" y="5" width="18" height="10" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><circle cx="15.5" cy="10.5" r="1.5"/><path d="M7 15v4h10v-4"/></svg></div>
+                                <div class="setup-text"><div class="setup-title">AMD Radeon RX 6600</div><div class="setup-subtitle">Видеокарта</div></div>
+                            </div>
+                            <div class="setup-item">
+                                <div class="setup-icon"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M20 38c-.517 0-.965.088-1.338.3a1.95 1.95 0 0 0-.81.938c-.336.776-.352 1.751-.352 3.012h1c0-1.24.065-2.139.27-2.613.102-.237.214-.37.388-.469.175-.1.439-.168.842-.168.428 0 .704.07.88.17s.283.224.38.459c.194.47.24 1.376.24 2.621h1c0-1.255.007-2.223-.316-3.004a1.9 1.9 0 0 0-.813-.947C20.991 38.086 20.536 38 20 38"/><path d="M5.5 42.247h12.497v-.997h-11.5c-.13-7.488-.997-4.632-.997.997m51.997-.997h-35.5v.997H58.5c-.5-5.997-1.003-8.535-1.003-.997"/><path d="M5.5 21.75v20.5h1v-19.5h51v19.5h1v-20.5z"/><path d="M7.5 23.75v11.68h49V23.75Zm1.084 1.084h46.832v9.512H8.584Z"/><path d="M9.5 39.25v3h1v-3zm2 0v3h1v-3zm2 0v3h1v-3zm2 0v3h1v-3zm8 0v3h1v-3zm2 0v3h1v-3zm2 0v3h1v-3zm2 0v3h1v-3zm2 0v3h1v-3zm2 0v3h1v-3zm2 0v3h1v-3zm2 0v3h1v-3zm2 0v3h1v-3zm2 0v3h1v-3zm2 0v3h1v-3zm2 0v3h1v-3zm2 0v3h1v-3zm2 0v3h1v-3zm-46 0v3h1v-3zm48 0v3h1v-3zM6 36.75v1h52v-1zm3.5-5.5v2.5H12v-1h-1.5v-1.5zm42.5-5.5v1h1.5v1.5h1v-2.5z"/></svg></div>
+                                <div class="setup-text"><div class="setup-title">16 GB</div><div class="setup-subtitle">Оперативная память</div></div>
+                            </div>
+                            <div class="setup-item">
+                                <div class="setup-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" /></svg></div>
+                                <div class="setup-text"><div class="setup-title">512 GB SSD</div><div class="setup-subtitle">Накопитель</div></div>
+                            </div>
+                             <div class="setup-item">
+                                <div class="setup-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="currentColor"><path d="M 5.5253906 5.5253906 L 22.109375 7.4355469 L 22.109375 22.111328 L 5.5253906 22.111328 Z M 25.890625 7.4433594 L 42.474609 9.3535156 L 42.474609 22.111328 L 25.890625 22.111328 Z M 5.5253906 25.888672 L 22.109375 25.888672 L 22.109375 40.564453 L 5.5253906 42.474609 Z M 25.890625 25.888672 L 42.474609 25.888672 L 42.474609 38.646484 L 25.890625 40.556641 Z"/></svg></div>
+                                <div class="setup-text"><div class="setup-title">Windows 11</div><div class="setup-subtitle">Операционная система</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<audio id="audio"></audio>
+<script src="https://unpkg.com/@studio-freight/lenis@latest/bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
